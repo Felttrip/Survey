@@ -11,6 +11,7 @@
 	
 	<!--Project specific css-->
 	<link href="css/survey.css" rel="stylesheet">
+	<link href="css/jquery.nouislider.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,7 +35,7 @@
         </div>
         </div><!--/.nav-collapse -->
       </div>
-    </div>
+
 
     <div class="container">
 		<div class = "row">
@@ -44,9 +45,45 @@
 					<p class="lead">Please fill out the following survey placing at least one of the<br>
 									following categories at a 10.</p>
 				</div>
-				<input id="slider1" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="3"/&t
-<span id="slider1Label">Current Slider Value: <span id="slider1Val">3</span></span>
-
+				<div class = "container-fluid">
+				Does this work?
+				<br><br>
+					<div class="row">
+					
+						<div class = "col-md-8">
+								<div class = "slider" id="slider1"></div>
+						</div>
+						<div class = "col-md-4">
+							<span id = 'readout1'></span>
+						</div>
+					</div>
+					<br>
+					Would you use it?
+					<br><br>
+					<div class="row">
+						<div class = "col-md-8">
+								<div class = "slider" id="slider2"></div>
+						</div>
+						<div class = "col-md-4">
+							<span id = 'readout2'></span>
+						</div>
+					</div>
+					<br>
+					What year is it?
+					<br><br>
+					<div class="row">
+						<div class = "col-md-8">
+								<div class = "slider" id="slider3"></div>
+						</div>
+						<div class = "col-md-4">
+							<span id = 'readout3'></span>
+						</div>
+					</div>
+					<div class = "row">
+					<br>
+					<button onclick = "validate()">Submit</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div><!-- /.container -->
@@ -55,6 +92,81 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.nouislider.min.js"></script>
 	<script src="js/survey.js"></script>
+	<script>
+		 // On document ready, initialize noUiSlider.
+		$(function(){
+			$('#slider1').noUiSlider({
+				start: [0],
+				step: 1,
+				
+				range: {
+					'min': 0,
+					'max': 10
+				},
+				serialization: {
+		lower: [
+		  $.Link({
+			target: $('#readout1')
+		  })
+		],
+		format: {
+			decimals: 0,
+			mark: ','
+		}
+	}
+			});
+
+		});
+		
+		$(function(){
+			$('#slider2').noUiSlider({
+				start: [0],
+				step: 1,
+				
+				range: {
+					'min': 0,
+					'max': 10
+				},
+				serialization: {
+		lower: [
+		  $.Link({
+			target: $('#readout2')
+		  })
+		],
+		format: {
+			decimals: 0,
+			mark: ','
+		}
+	}
+			});
+
+		})
+		
+		$(function(){
+			$('#slider3').noUiSlider({
+				start: [0],
+				step: 1,
+				
+				range: {
+					'min': 0,
+					'max': 10
+				},
+				serialization: {
+		lower: [
+		  $.Link({
+			target: $('#readout3')
+		  })
+		],
+		format: {
+			decimals: 0,
+			mark: ','
+		}
+	}
+			});
+
+		})
+	</script>	
   </body>
 </html>
