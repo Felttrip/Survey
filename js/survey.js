@@ -3,8 +3,9 @@ function validate(){
 var max = 0;
 jQuery('.slider').each(function() {
     var currentElement = $(this);
-	if (currentElement.val() > max){
-		max = currentElement.val();
+	var value = parseInt(currentElement.val());
+	if (value > max){
+		max = value;
 	}
 });
 if(max!=10){
